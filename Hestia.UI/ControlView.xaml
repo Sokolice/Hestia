@@ -1,0 +1,100 @@
+﻿<Page
+    x:Class="Hestia.View.ControlView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hestia.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViemModel="using:Hestia.ViewModel" 
+    xmlns:dc="using:Hestia.View.Controls"    
+    xmlns:c="using:Hestia.View"
+    mc:Ignorable="d"
+    Name="MainPage" Unloaded="MainPage_Unloaded"
+    RequestedTheme="{Binding Theme}">
+    <Page.DataContext>
+        <ViemModel:ControlViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <local:StyleConverter x:Key="StyleConverter"/>
+    </Page.Resources>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="States" CurrentStateChanged="States_CurrentStateChanged">
+                    <VisualState x:Name="Default">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="720" />
+                        </VisualState.StateTriggers>
+                    </VisualState>
+                    <VisualState x:Name="Reduced">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0"/>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="Master.Width" Value="*" />
+                            <Setter Target="Detail.Width" Value="0" />
+                            <Setter Target="RoomListView.SelectionMode" Value="None" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock x:Uid="txtControlHeader" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=title}" Text="" Margin="5,0,0,0"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="Master" Width="Auto"/>
+                    <ColumnDefinition x:Name="Detail" Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ListView x:Name="RoomListView" MinWidth="190" Grid.Column="0" ItemsSource="{Binding Rooms}" SelectedItem="{Binding ControlRoom,Mode=TwoWay}" ItemClick="RoomListView_ItemClick" IsItemClickEnabled="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="150" MinHeight="100" Padding="5" Margin="2" Orientation="Vertical" Background="Orange">
+                                <TextBlock Text="{Binding Name}" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=heading}"/>
+                                <TextBlock Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}" >
+                                            <Run x:Uid="txtNumOfDevice" Text=""/>
+                                            <Run Text="{Binding Devices.Count}"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>                
+                <!--<GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>-->
+                </ListView>
+                <RelativePanel Grid.Column="1" Margin="20,0,0,0">
+                    <TextBlock Text="{Binding ControlRoom.Name, Mode=TwoWay}" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=subtitle}" Margin="5,0,0,0"/>
+                    <GridView ItemsSource="{Binding ControlDevices}" SelectedItem="{Binding ControlDevice, Mode=TwoWay}" Margin="0,32,0,0">
+                    <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <dc:DeviceControl DeviceName="{Binding Name}" 
+                                              ButtonOnCommand="{Binding ElementName=MainPage, Path=DataContext.LightOnCommand}" 
+                                              ButtonOffCommand="{Binding ElementName=MainPage, Path=DataContext.LightOffCommand}"
+                                              DimmingPlusCommand="{Binding ElementName=MainPage, Path=DataContext.DimmingPlus}"
+                                              DimmingMinusCommand="{Binding ElementName=MainPage, Path=DataContext.DimmingMinus}"
+                                              ButtonUpCommand="{Binding ElementName=MainPage, Path=DataContext.UpCommand}"
+                                              ButtonDownCommand="{Binding ElementName=MainPage, Path=DataContext.DownCommand}"
+                                              SlatTiltCommand="{Binding ElementName=MainPage, Path=DataContext.SlatTiltCommand}"
+                                              SlatTilt="{Binding SlatTiltValue, Mode=TwoWay}"
+                                              BlindHeight="{Binding BlindHeightValue, Mode=TwoWay}"
+                                              BlindHeightCommand="{Binding ElementName=MainPage, Path=DataContext.BlindHeightCommand}"                                              
+                                              LightsOnOffAddress="{Binding LightsOnOffAddress}"
+                                              LightsDimming="{Binding LightsDimming}"
+                                              LightsValue="{Binding LightsValue}"
+                                              BlindsUpdDown="{Binding BlindsUpdDown}"
+                                              BlindsMovement="{Binding BlindsMovement}"
+                                              BlindsSlat="{Binding BlindsSlat}"
+                                              Category="{Binding Category}"
+                                              ID="{Binding Id}"/>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                </GridView>
+                </RelativePanel>
+            </Grid>
+        </Grid>
+</Page>

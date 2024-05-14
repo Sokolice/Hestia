@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="Hestia.View.ControlDetailView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hestia.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:ViemModel="using:Hestia.ViewModel"     
+    xmlns:dc="using:Hestia.View.Controls" 
+    RequestedTheme="{Binding Theme}"
+    Unloaded="Page_Unloaded">
+    <Page.DataContext>
+        <ViemModel:ControlViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <local:StyleConverter x:Key="StyleConverter"/>
+    </Page.Resources>
+    <StackPanel>
+        <Button
+                x:Name="BackButton"
+                Style="{StaticResource NavigationBackButtonSmallStyle}"
+                TabIndex="1"
+                Click="BackButton_Click"            
+                AutomationProperties.Name="Back"
+                ToolTipService.ToolTip="Back" />
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <TextBlock Text="{Binding ControlRoom.Name}" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=subtitle}"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <GridView ItemsSource="{Binding ControlDevices}" SelectedItem="{Binding ControlDevice, Mode=TwoWay}" Margin="0,40,0,0">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <dc:DeviceControl DeviceName="{Binding Name}" 
+                                              ButtonOnCommand="{Binding ElementName=MainPage, Path=DataContext.LightOnCommand}" 
+                                              ButtonOffCommand="{Binding ElementName=MainPage, Path=DataContext.LightOffCommand}"
+                                              DimmingPlusCommand="{Binding ElementName=MainPage, Path=DataContext.DimmingPlus}"
+                                              DimmingMinusCommand="{Binding ElementName=MainPage, Path=DataContext.DimmingMinus}"
+                                              ButtonUpCommand="{Binding ElementName=MainPage, Path=DataContext.UpCommand}"
+                                              ButtonDownCommand="{Binding ElementName=MainPage, Path=DataContext.DownCommand}"
+                                              SlatTiltCommand="{Binding ElementName=MainPage, Path=DataContext.SlatTiltCommand}"
+                                              SlatTilt="{Binding SlatTiltValue, Mode=TwoWay}"
+                                              BlindHeight="{Binding BlindHeightValue, Mode=TwoWay}"
+                                              BlindHeightCommand="{Binding ElementName=MainPage, Path=DataContext.BlindHeightCommand}"                                              
+                                              LightsOnOffAddress="{Binding LightsOnOffAddress}"
+                                              LightsDimming="{Binding LightsDimming}"
+                                              LightsValue="{Binding LightsValue}"
+                                              BlindsUpdDown="{Binding BlindsUpdDown}"
+                                              BlindsMovement="{Binding BlindsMovement}"
+                                              BlindsSlat="{Binding BlindsSlat}"
+                                              Category="{Binding Category}"
+                                              ID="{Binding Id}"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+            </ScrollViewer>
+        </Grid>
+    </StackPanel>
+    
+</Page>

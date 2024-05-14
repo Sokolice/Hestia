@@ -1,0 +1,95 @@
+﻿<Application
+    x:Class="Hestia.View.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hestia.View"
+    RequestedTheme="Dark">
+    <Application.Resources>
+        <Style x:Key="SmallTitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="OpticalMarginAlignment" Value="TrimSideBearings"/>
+        </Style>
+        <Style x:Key="MediumTitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallTitleTextBlock}">
+            <Setter Property="FontSize" Value="27"/>
+        </Style>
+        <Style x:Key="LargeTitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallTitleTextBlock}">
+            <Setter Property="FontSize" Value="32"/>
+        </Style>
+        <Style x:Key="SmallSubtitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontWeight" Value="SemiLight"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style x:Key="MediumSubtitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallSubtitleTextBlock}">
+            <Setter Property="FontSize" Value="23"/>
+        </Style>
+        <Style x:Key="LargeSubtitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallSubtitleTextBlock}">
+            <Setter Property="FontSize" Value="28"/>
+        </Style>
+        <Style x:Key="SmallSubSubtitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="MediumSubSubtitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallSubSubtitleTextBlock}">
+            <Setter Property="FontSize" Value="21"/>
+        </Style>
+        <Style x:Key="LargeSubSubtitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallSubSubtitleTextBlock}">
+            <Setter Property="FontSize" Value="26"/>
+        </Style>
+        <Style x:Key="SmallHeadingTextBlock" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="MediumHeadingTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallHeadingTextBlock}">
+            <Setter Property="FontSize" Value="19"/>
+        </Style>
+        <Style x:Key="LargeHeadingTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallHeadingTextBlock}">
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+        <Style x:Key="SmallBoldHeadingTextBlock" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="MediumBoldHeadingTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallBoldHeadingTextBlock}">
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
+        <Style x:Key="LargeBoldHeadingTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallBoldHeadingTextBlock}">
+            <Setter Property="FontSize" Value="22"/>
+        </Style>
+        <Style x:Key="SmallTextBlock" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style x:Key="MediumTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallTextBlock}">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="LargeTextBlock" TargetType="TextBlock" BasedOn="{StaticResource SmallTextBlock}">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style x:Key="SmallTextBox" TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="MinHeight" Value="13"/>
+        </Style>
+        <Style x:Key="MediumTextBox" TargetType="TextBox" BasedOn="{StaticResource SmallTextBox}">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="MinHeight" Value="15"/>
+        </Style>
+        <Style x:Key="LargeTextBox" TargetType="TextBox" BasedOn="{StaticResource SmallTextBox}">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="MinHeight" Value="20"/>
+        </Style>
+        <Style x:Key="SmallCombo" TargetType="ComboBox">
+            <Setter Property="MinHeight" Value="13"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style x:Key="MediumCombo" TargetType="ComboBox" BasedOn="{StaticResource SmallCombo}">
+            <Setter Property="MinHeight" Value="15"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="LargeCombo" TargetType="ComboBox" BasedOn="{StaticResource SmallCombo}">
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Application.Resources>
+</Application>

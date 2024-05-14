@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="Hestia.View.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hestia.View"    
+    xmlns:ViemModel="using:Hestia.ViewModel" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="{Binding Theme, Mode=TwoWay}" Unloaded="Page_Unloaded">
+    <Page.DataContext>
+        <ViemModel:SettingsViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <local:StyleConverter x:Key="StyleConverter"/>
+    </Page.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=title}" x:Uid="txtSetHeader" Text="" />
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,10,5,0" x:Uid="txtLanguage" Text="" Grid.Row="0" Grid.Column="0" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                    <ComboBox Margin="0,10,0,0" Grid.Row="0" Grid.Column="1" Name="cmbLanguage" SelectedIndex="{Binding SelectedLanguage, Mode=TwoWay}" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=combo}">
+                        <ComboBoxItem Name="cs">
+                            <TextBlock x:Uid="cmbCzech" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="en">
+                            <TextBlock  x:Uid="cmbEng" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock Margin="0,10,5,0" Grid.Row="1" Grid.Column="0" x:Uid="txtTheme" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                    <ComboBox Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" Name="cmbTheme" SelectedIndex="{Binding SelectedTheme, Mode=TwoWay}" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=combo}">
+                        <ComboBoxItem>
+                            <TextBlock x:Uid="cmbLight" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock x:Uid="cmbDark" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock Margin="0,10,5,0" Grid.Row="2" Grid.Column="0" x:Uid="txtFontSize" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                    <ComboBox Margin="0,10,0,0" Grid.Row="2" Grid.Column="1" Name="cmbFontSize" SelectedIndex="{Binding SelectedFontSize, Mode=TwoWay}" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=combo}">
+                        <ComboBoxItem>
+                            <TextBlock x:Uid="cmbSmall" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock x:Uid="cmbMedium" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock x:Uid="cmbLarge" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                        </ComboBoxItem>
+                    </ComboBox>
+                    </Grid>
+                    <TextBlock Grid.Row="1" Text="" Margin="0,10,0,0" x:Uid="txtLangWarning" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+
+                    <Button Margin="0,10,0,0" Grid.Row="2" Command="{Binding SaveCommand}">
+                        <TextBlock x:Uid="txtSave" FontFamily="Segoe UI Symbol" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                    </Button>
+                    <Button  Margin="0,20,0,0" Grid.Row="3" Command="{Binding OpenConfigurationCommand}">
+                        <TextBlock x:Uid="txtOpenConfig" FontFamily="Segoe UI Symbol" Text="" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

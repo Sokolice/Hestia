@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnConfig.Label" xml:space="preserve">
+    <value>Konfigurace</value>
+  </data>
+  <data name="btnControl.Label" xml:space="preserve">
+    <value>Ovládání</value>
+  </data>
+  <data name="btnHelp.Label" xml:space="preserve">
+    <value>Nápověda</value>
+  </data>
+  <data name="btnSet.Label" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="txtBlinds.Text" xml:space="preserve">
+    <value>Žaluzie</value>
+  </data>
+  <data name="cmbCzech.Text" xml:space="preserve">
+    <value>Čeština</value>
+  </data>
+  <data name="cmbEng.Text" xml:space="preserve">
+    <value>Angličtina</value>
+  </data>
+  <data name="errChooseDeviceDel" xml:space="preserve">
+    <value>Vyberte zařízení pro smazání.</value>
+  </data>
+  <data name="errChooseRomeForInsert" xml:space="preserve">
+    <value>Zvolte místnost pro vložení zařízení.</value>
+  </data>
+  <data name="errChooseRoomDel" xml:space="preserve">
+    <value>Vyberte místnost pro smazání.</value>
+  </data>
+  <data name="errWarningHeader" xml:space="preserve">
+    <value>Upozornění</value>
+  </data>
+  <data name="HeaderConfiguration.Text" xml:space="preserve">
+    <value>Konfigurace</value>
+  </data>
+  <data name="infoListening" xml:space="preserve">
+    <value>Poslouchám ...</value>
+  </data>
+  <data name="infoReady" xml:space="preserve">
+    <value>Připraveno.</value>
+  </data>
+  <data name="infoSpeechNotAvailable" xml:space="preserve">
+    <value>Hlasové ovládání není k dispozici</value>
+  </data>
+  <data name="txtCategory.Text" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="txtControlHeader.Text" xml:space="preserve">
+    <value>Ovládání</value>
+  </data>
+  <data name="txtDelete.Text" xml:space="preserve">
+    <value> Smazat označené</value>
+  </data>
+  <data name="txtDimming.Text" xml:space="preserve">
+    <value>Stmívání</value>
+  </data>
+  <data name="txtHelp.Text" xml:space="preserve">
+    <value>Nápověda</value>
+  </data>
+  <data name="txtInsert.Text" xml:space="preserve">
+    <value> Vložit</value>
+  </data>
+  <data name="txtLightState.Text" xml:space="preserve">
+    <value>Stav světla</value>
+  </data>
+  <data name="txtListDevices.Text" xml:space="preserve">
+    <value>Seznam zařízení</value>
+  </data>
+  <data name="txtMovementValue.Text" xml:space="preserve">
+    <value>Výška žaluzie</value>
+  </data>
+  <data name="txtName.Text" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="txtNewDevice.Text" xml:space="preserve">
+    <value>Nové zařízení</value>
+  </data>
+  <data name="txtNewRoom.Text" xml:space="preserve">
+    <value>Nová místnost</value>
+  </data>
+  <data name="txtNumOfDevice.Text" xml:space="preserve">
+    <value>Počet zařízeni:</value>
+  </data>
+  <data name="txtOnOff.Text" xml:space="preserve">
+    <value>Vypnout/zapnout</value>
+  </data>
+  <data name="txtRoomList.Text" xml:space="preserve">
+    <value>Seznam místností</value>
+  </data>
+  <data name="txtSave.Text" xml:space="preserve">
+    <value> Uložit</value>
+  </data>
+  <data name="txtSetHeader.Text" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="txtSlatTilt.Text" xml:space="preserve">
+    <value>Naklonění lamel</value>
+  </data>
+  <data name="txtUpDown.Text" xml:space="preserve">
+    <value>Pohyb nahoru/dolů</value>
+  </data>
+  <data name="errSave" xml:space="preserve">
+    <value>Došlo k chybě při ukládání konfigurace.</value>
+  </data>
+  <data name="infoRepeatCommand" xml:space="preserve">
+    <value>Zopakujte prosím příkaz.</value>
+  </data>
+  <data name="speechNewDevAddress" xml:space="preserve">
+    <value>Vyplňte alespoň jednu ze skupinových adres</value>
+  </data>
+  <data name="speechNewDevName" xml:space="preserve">
+    <value>Prosím vyplňte název zařízení.</value>
+  </data>
+  <data name="speechNewRoomName" xml:space="preserve">
+    <value>Prosím vyplňte název místnosti.</value>
+  </data>
+  <data name="warNewDevAddress" xml:space="preserve">
+    <value>Vyplňte alespoň jednu skupinovou adresu pro zařízení ve správném formátu.</value>
+  </data>
+  <data name="warNewDevName" xml:space="preserve">
+    <value>Vyplňte prosím jméno nového zařízení</value>
+  </data>
+  <data name="warNewRoomName" xml:space="preserve">
+    <value>Vyplňte prosím jméno nové místnosti.</value>
+  </data>
+  <data name="txtLanguage.Text" xml:space="preserve">
+    <value>Jazyk:</value>
+  </data>
+  <data name="cmbDark.Text" xml:space="preserve">
+    <value>Tmavé</value>
+  </data>
+  <data name="cmbLight.Text" xml:space="preserve">
+    <value>Světlé</value>
+  </data>
+  <data name="infoOff" xml:space="preserve">
+    <value>Vypnuto</value>
+  </data>
+  <data name="txtOpenConfig.Text" xml:space="preserve">
+    <value>Otevřít konfiguraci</value>
+  </data>
+  <data name="cmbLarge.Text" xml:space="preserve">
+    <value>Velké</value>
+  </data>
+  <data name="cmbMedium.Text" xml:space="preserve">
+    <value>Střední</value>
+  </data>
+  <data name="cmbSmall.Text" xml:space="preserve">
+    <value>Malé</value>
+  </data>
+  <data name="txtFontSize.Text" xml:space="preserve">
+    <value>Velikost písma</value>
+  </data>
+  <data name="txtTheme.Text" xml:space="preserve">
+    <value>Barevné schéma</value>
+  </data>
+  <data name="txtOn" xml:space="preserve">
+    <value>Zapnuto</value>
+  </data>
+  <data name="txtLights.Text" xml:space="preserve">
+    <value>Osvětlení</value>
+  </data>
+  <data name="txtLangWarning.Text" xml:space="preserve">
+    <value>Změna jazyka se projeví po restartování aplikace</value>
+  </data>
+  <data name="txtDown" xml:space="preserve">
+    <value>Dolů</value>
+  </data>
+  <data name="txtUp" xml:space="preserve">
+    <value>Nahoru</value>
+  </data>
+  <data name="txtAboutAppDescription.Text" xml:space="preserve">
+    <value>(c) 2016 Jana Belešová</value>
+  </data>
+  <data name="txtConfigurationDescription.Text" xml:space="preserve">
+    <value>Pro správnou funkci aplikace je potřeba provést konfiguraci. Ke konfiguraci lze přistoupit z obrazovky Nastavení stisknutím tlačítka "Otevřít konfiguraci". Konfiguraci by měla provádět osoba obeznámená se systémem KNX. V konfigurační fázi se mapují místnosti a zařízení v budově. Pro správnou konfiguraci je nutné znát skupinové adresy zařízení a jejich naprogramované funkce.</value>
+  </data>
+  <data name="txtControlDescription.Text" xml:space="preserve">
+    <value>Obrazovka pro ovládání budovy se skládá z levé a pravé části. V levé části je zobrazen seznam místností. V pravé části jsou po výběru místnosti zobrazeny zařízení. Podle nakonfigurovaných funkcí zařízení se zobrazí specifické ovládací prvky.</value>
+  </data>
+  <data name="txtManualDescription.Text" xml:space="preserve">
+    <value>Podrobnější informace k použivání aplikace jsou uvedeny v uživatelské příručce.</value>
+  </data>
+  <data name="txtSettingsDescription.Text" xml:space="preserve">
+    <value>Pro zjednodušení práce s aplikací lze upravit několik nastavení. Je možné vybrat ze dvou barevných schémat (světlé, tmavé). Dále je možné vybrat ze tří velikostí písma (malé, střední, velké) a ze dvou jazyků (Čeština, Angličtina).</value>
+  </data>
+  <data name="txtUserManual.Text" xml:space="preserve">
+    <value>Uživatelská přiručka</value>
+  </data>
+  <data name="errAddress" xml:space="preserve">
+    <value>Incorrect address format!</value>
+  </data>
+  <data name="errExDevice" xml:space="preserve">
+    <value>Please choose existing device.</value>
+  </data>
+  <data name="errExRoom" xml:space="preserve">
+    <value>Please choose existing room.</value>
+  </data>
+  <data name="errSelDev" xml:space="preserve">
+    <value>Please select device</value>
+  </data>
+  <data name="errSelRoom" xml:space="preserve">
+    <value>Please select room</value>
+  </data>
+</root>

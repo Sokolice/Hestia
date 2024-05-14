@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<grammar mode="voice" root="main" version="1.0" tag-format="semantics/1.0" xml:lang="en" xmlns="http://www.w3.org/2001/06/grammar">
+  <rule id="main">
+    <one-of>
+      <item>
+        <ruleref uri="#Navigation"/>
+      </item>
+      <item>
+        <ruleref uri="#Select"/>
+      </item>
+      <item>
+        <ruleref uri="#ControlAction"/>
+      </item>
+      <item>
+        <ruleref uri="#ConfigurationInputs"/>
+      </item>
+      <item>
+        <ruleref uri="#command"/>
+      </item>
+      <item>
+        <ruleref uri="#InputValues"/>
+      </item>
+      <item>
+        <ruleref uri="#Settings"/>
+      </item>
+      <item>
+        <ruleref uri="#SettingsCommands"/>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="SettingsCommands">
+      <tag>out.Type="ProccessSettingsCommands";</tag>
+    <one-of>
+      <item>
+        save settings
+      <tag>out.What="Save";</tag>
+      </item>
+      <item>
+        open configuration
+      <tag>out.What="OpenConfiguration";</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="Settings">
+    <item>
+      change
+      <tag>out.Type="ProccessSettings";</tag>
+    </item>
+    <one-of>
+      <item>
+        language to
+        <tag>out.What="SelectedLanguage";</tag>
+        <ruleref uri="#LanguageOptions"/>      
+        <tag>out.To = rules.LanguageOptions;</tag>
+      </item>
+      <item>
+        theme to
+        <tag>out.What="SelectedTheme";</tag>
+        <ruleref uri="#ThemeOptions"/>
+        <tag>out.To = rules.ThemeOptions;</tag>
+      </item>
+      <item>
+        font size to 
+        <tag>out.What="SelectedFontSize";</tag>
+        <ruleref uri="#FontOptions"/>
+        <tag>out.To = rules.FontOptions;</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="FontOptions">
+    <one-of>
+      <item>
+        Small
+        <tag>out.To = 0;</tag>
+      </item>
+      <item>
+        Medium
+        <tag>out.To = 1;</tag>
+      </item>
+      <item>
+        Large
+        <tag>out.To = 2;</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="LanguageOptions">
+    <one-of>
+      <item>
+        Czech
+        <tag>out.To = 0;</tag>
+      </item>
+      <item>
+        English
+        <tag>out.To = 1;</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="ThemeOptions">
+    <one-of>
+      <item>
+        Light
+        <tag>out.To = 0;</tag>
+      </item>
+      <item>
+        Dark
+        <tag>out.To = 1;</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="Navigation">
+    <example>go to control</example>
+    <example>go to configuration page</example>
+    <item>
+      go to
+      <tag>out.Type = "ProcessNavigation"</tag>
+    </item>
+    <ruleref uri="#Location"/>
+    <tag>out.Where = rules.Location;</tag>
+    <item repeat="0-1">
+      page
+    </item>
+  </rule>
+
+  <rule id="Select">
+    <example>select room three</example>
+    <example>select device five</example>
+
+    <item>
+      select <tag>out.Type = "ProcessSelect"</tag>
+    </item>
+    <one-of>
+      <item>
+        room
+        <tag>out.What = "room";</tag>
+      </item>
+      <item>
+        device
+        <tag>out.What = "device";</tag>
+      </item>
+    </one-of>
+    <ruleref uri="#LongNumber"/>
+    <tag>out.Number = rules.LongNumber;</tag>
+  </rule>
+  <rule id="Location">
+    <one-of>
+      <item>
+        control
+        <tag>out="control";</tag>
+      </item>
+      <item>
+        help
+        <tag>out="help";</tag>
+      </item>
+      <item>
+        configuration
+        <tag>out="configuration";</tag>
+      </item>
+      <item>
+        settings
+        <tag>out="settings";</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="ControlAction">
+    <tag>out.Type = "ProcessControlAction";</tag>
+    <one-of>
+      <item>
+        light on
+        <tag>out.Action = "LightOn"</tag>
+      </item>
+      <item>
+        light off
+        <tag>out.Action = "LightOff"</tag>
+      </item>
+      <item>
+        blind up
+        <tag>out.Action = "Up"</tag>
+      </item>
+      <item>
+        blind down
+        <tag>out.Action = "Down"</tag>
+      </item>
+      <item>
+        change blind height
+        <tag>out.Action = "BlindHeight"</tag>
+      </item>
+      <item>
+        change tilt
+        <tag>out.Action = "Tilt"</tag>
+      </item>
+      <item>
+        increase brightness
+        <tag>out.Action = "Plus"</tag>
+      </item>
+      <item>
+        decrease brightness
+        <tag>out.Action = "Minus"</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="InputValues">
+    <tag>out.Type = "ProccessInput";</tag>
+    <item>
+      <item>
+        write
+      </item>
+      <item>
+        <one-of>
+          <item>
+            height
+            <tag>out.Property = "BlindHeightValue";</tag>
+          </item>
+          <item>
+            tilt
+            <tag>out.Property = "SlatTiltValue";</tag>
+          </item>
+        </one-of>
+      </item>
+      <item>
+        value
+      </item>
+      <item>
+        <ruleref uri="#NumberValues"/>
+        <tag>out.Number = rules.NumberValues</tag>
+      </item>
+    </item>
+  </rule>
+  <rule id="NumberValues">
+    <one-of>
+      <item>
+        <ruleref uri="#Number"/>
+        <tag>out.Number = rules.Number</tag>
+      </item>
+      <item>
+        <item>
+          <ruleref uri="#Number"/>
+          <tag>out.PartOne = rules.Number</tag>
+        </item>
+        <item>
+          <ruleref uri="#Number"/>
+          <tag>out.PartTwo = rules.Number</tag>
+        </item>
+        <tag>out = out.PartOne +""+ out.PartTwo</tag>
+      </item>
+      <item>
+        <item>
+          <ruleref uri="#Number"/>
+          <tag>out.PartOne = rules.Number</tag>
+        </item>
+        <item>
+          <ruleref uri="#Number"/>
+          <tag>out.PartTwo = rules.Number</tag>
+        </item>
+        <item>
+          <ruleref uri="#Number"/>
+          <tag>out.PartThree = rules.Number</tag>
+        </item>
+        <tag>out = out.PartOne +""+ out.PartTwo +""+ out.PartThree;</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="command">
+    <tag>out.Type = "ProccessCommand"</tag>
+    <one-of>
+      <item>
+        delete
+        <tag>out.Command="Delete";</tag>
+        <tag>out.PropertyPart = "Selected";</tag>
+        <ruleref uri="#objectType"/>
+        <tag>out.objectType = rules.objectType</tag>
+      </item>
+      <item>
+        add new
+        <tag>out.Command="Add";</tag>
+        <tag>out.PropertyPart = "New";</tag>
+        <ruleref uri="#objectType"/>
+        <tag>out.objectType = rules.objectType</tag>
+      </item>
+      <item>
+        save configuration
+        <tag>out.Command="Save";</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="objectType">
+    <one-of>
+      <item>
+        room
+        <tag>out.What="Room";</tag>
+      </item>
+      <item>
+        device
+        <tag>out.What="Device";</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="ConfigurationInputs">
+    <example>write lights on off address 123/123/123</example>
+    <example>change device name ceiling light</example>
+    <one-of>
+      <item>
+        change
+        <tag>out.ActionType = "Selected"</tag>
+      </item>
+      <item>
+        write
+        <tag>out.ActionType = "New"</tag>
+      </item>
+    </one-of>
+    <one-of>
+      <item>
+        <ruleref uri="#AddressSelector"/>
+        <tag>out.AddressSelector = rules.AddressSelector</tag>
+      </item>
+      <item>
+        <ruleref uri="#NameSelector"/>
+        <tag>out.NameSelector = rules.NameSelector</tag>
+      </item>
+      <item>
+        <ruleref uri="#CategorySelector"/>
+        <tag>out.CategorySelector = rules.CategorySelector</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="CategorySelector">
+    <item>
+      device category
+      <tag>out.Type="ProccessCategory"</tag>
+    </item>
+    <one-of>
+      <item>
+        blinds
+        <tag>out.Category=1</tag>
+      </item>
+      <item>
+        lights
+        <tag>out.Category=0</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="NameSelector">
+    <one-of>
+      <item>
+        <item>
+          room
+          <tag>out.What ="Room"</tag>
+        </item>
+        <item>
+          name<tag>out.Type="ProccessName";</tag>
+        </item>
+        <item>
+          <ruleref uri="#RoomNames"/>
+          <tag>out.RoomNames = rules.RoomNames</tag>
+        </item>
+      </item>
+      <item>
+        <item>
+          device
+          <tag>out.What="Device"</tag>
+        </item>
+        <item>
+          name<tag>out.Type="ProccessName";</tag>
+        </item>
+        <item>
+          <ruleref uri="#DeviceNames"/>
+          <tag>out.DeviceNames = rules.DeviceNames</tag>
+        </item>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="RoomNames">
+    <one-of>
+      <item>
+        kitchen
+        <tag>out.Name = "kitchen"</tag>
+      </item>
+      <item>
+        toilet
+        <tag>out.Name = "toilet"</tag>
+      </item>
+      <item>
+        bathroom
+        <tag>out.Name = "bathroom"</tag>
+      </item>
+      <item>
+        living room
+        <tag>out.Name = "living room"</tag>
+      </item>
+      <item>
+        dining room
+        <tag>out.Name = "dining room"</tag>
+      </item>
+      <item>
+        bedroom
+        <tag>out.Name = "bedroom"</tag>
+      </item>
+      <item>
+        corridor
+        <tag>out.Name = "corridor"</tag>
+      </item>
+      <item>
+        hall
+        <tag>out.Name = "hall"</tag>
+      </item>
+      <item>
+        basement
+        <tag>out.Name = "basement"</tag>
+      </item>
+      <item>
+        garage
+        <tag>out.Name = "garage"</tag>
+      </item>
+      <item>
+        attic
+        <tag>out.Name = "attic"</tag>
+      </item>
+    </one-of>
+    <item repeat="0-1">
+      <ruleref uri="#Number"/>
+      <tag>out.Number = rules.Number</tag>
+    </item>
+  </rule>
+  <rule id="DeviceNames">
+    <one-of>
+      <item>
+        <one-of>
+          <item>
+            north
+            <tag>out.Side = "north"</tag>
+          </item>
+          <item>
+            south
+            <tag>out.Side = "south"</tag>
+          </item>
+          <item>
+            east
+            <tag>out.Side = "east"</tag>
+          </item>
+          <item>
+            west
+            <tag>out.Side = "west"</tag>
+          </item>
+          <item>
+            rear
+            <tag>out.Side = "rear"</tag>
+          </item>
+          <item>
+            left
+            <tag>out.Side = "left"</tag>
+          </item>
+          <item>
+            right
+            <tag>out.Side = "right"</tag>
+          </item>
+          <item>
+            front
+            <tag>out.Side = "front"</tag>
+          </item>
+        </one-of>
+        <item>
+          blind
+        </item>
+        <tag>out.Name = out.Side + " blind";</tag>
+      </item>
+      <item>
+        ceiling light
+        <tag>out.Name = "ceiling light"</tag>
+      </item>
+      <item>
+        light
+        <tag>out.Name = "light"</tag>
+      </item>
+      <item>
+        lamp
+        <tag>out.Name = "lamp"</tag>
+      </item>
+      <item>
+        light
+        <tag>out.Name = "light"</tag>
+      </item>
+    </one-of>
+   <item repeat="0-1">
+      <ruleref uri="#Number"/>
+      <tag>out.Number = rules.Number</tag>
+    </item>
+  </rule>
+  <rule id="AddressSelector">
+    <item>
+      <ruleref uri="#AddressType"/>
+      <tag>out.AddressType = rules.AddressType</tag>
+    </item>
+    <item>
+      address
+      <tag>out.Type = "ProccessAddress";</tag>
+    </item>
+    <item>
+      <ruleref uri="#AddressFormat"/>
+      <tag>out.Address = rules.AddressFormat;</tag>
+    </item>
+  </rule>
+  <rule id="AddressType" scope="public">
+    <one-of>
+      <item>
+        lights on off
+        <tag>out = "LightsOnOffAddress";</tag>
+      </item>
+      <item>
+        lights dimming
+        <tag>out = "LightsDimming";</tag>
+      </item>
+      <item>
+        lights value
+        <tag>out = "LightsValue";</tag>
+      </item>
+      <item>
+        lights status
+        <tag>out = "LightsStatusAddress";</tag>
+      </item>
+      <item>
+        blinds up down
+        <tag>out = "BlindsUpdDown";</tag>
+      </item>
+      <item>
+        blinds value
+        <tag>out = "BlindsMovement";</tag>
+      </item>
+      <item>
+        blinds slat
+        <tag>out = "BlindsSlat";</tag>
+      </item>
+      <item>
+        blinds status
+        <tag>out = "BlindsStatus";</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="AddressFormat" scope="public">
+    <item>
+      <ruleref uri="#PossibleCombination"/>
+      <tag>out.First = rules.PossibleCombination</tag>
+    </item>
+    <item>slash</item>
+    <item>
+      <ruleref uri="#PossibleCombination"/>
+      <tag>out.Second = rules.PossibleCombination</tag>
+    </item>
+    <item>
+      <item>slash</item>
+      <ruleref uri="#PossibleCombination"/>
+      <tag>out.Third = rules.PossibleCombination</tag>
+    </item>
+    <tag>out = out.First +"/"+ out.Second +"/"+ out.Third</tag>
+  </rule>
+
+  <rule id="PossibleCombination">
+    <one-of>
+      <item>
+        <ruleref uri="#Number"/>
+        <tag>out = rules.Number</tag>
+      </item>
+      <item>
+        <ruleref uri="#Number"/>
+        <tag>out.One = rules.Number</tag>
+
+        <ruleref uri="#Number"/>
+        <tag>out.Two = rules.Number</tag>
+        <tag>out = out.One + "" + out.Two</tag>
+      </item>
+      <item>
+        <ruleref uri="#Number"/>
+        <tag>out.One = rules.Number</tag>
+
+        <ruleref uri="#Number"/>
+        <tag>out.Two = rules.Number</tag>
+
+        <ruleref uri="#Number"/>
+        <tag>out.Three = rules.Number</tag>
+
+        <tag>out = out.One +""+ out.Two +""+ out.Three</tag>
+      </item>
+    </one-of>
+  </rule>
+  <rule id="Number" scope="public">
+    <one-of>
+      <item>
+        zero <tag>out = 0; </tag>
+      </item>
+      <item>
+        one <tag>out = 1; </tag>
+      </item>
+      <item>
+        two <tag>out = 2; </tag>
+      </item>
+      <item>
+        three <tag>out = 3; </tag>
+      </item>
+      <item>
+        four <tag>out = 4; </tag>
+      </item>
+      <item>
+        five <tag>out = 5; </tag>
+      </item>
+      <item>
+        six <tag>out = 6; </tag>
+      </item>
+      <item>
+        seven <tag>out = 7; </tag>
+      </item>
+      <item>
+        eight <tag>out = 8; </tag>
+      </item>
+      <item>
+        nine <tag>out = 9; </tag>
+      </item>
+    </one-of>
+  </rule>
+<rule id="LongNumber" scope="public">
+    <one-of>
+      <item>
+        zero <tag>out = 0; </tag>
+      </item>
+      <item>
+        one <tag>out = 1; </tag>
+      </item>
+      <item>
+        two <tag>out = 2; </tag>
+      </item>
+      <item>
+        three <tag>out = 3; </tag>
+      </item>
+      <item>
+        four <tag>out = 4; </tag>
+      </item>
+      <item>
+        five <tag>out = 5; </tag>
+      </item>
+      <item>
+        six <tag>out = 6; </tag>
+      </item>
+      <item>
+        seven <tag>out = 7; </tag>
+      </item>
+      <item>
+        eight <tag>out = 8; </tag>
+      </item>
+      <item>
+        nine <tag>out = 9; </tag>
+      </item>
+      <item>
+        ten <tag>out = 10; </tag>
+      </item>
+      <item>
+        eleven <tag>out = 11; </tag>
+      </item>
+      <item>
+        twelve <tag>out = 12; </tag>
+      </item>
+      <item>
+        thirteen <tag>out = 13; </tag>
+      </item>
+      <item>
+        fourteen <tag>out = 14; </tag>
+      </item>
+      <item>
+        fifteen <tag>out = 15; </tag>
+      </item>
+      <item>
+        sixteen <tag>out = 16; </tag>
+      </item>
+      <item>
+        seventeen <tag>out = 17; </tag>
+      </item>
+      <item>
+        eighteen <tag>out = 18; </tag>
+      </item>
+      <item>
+        nineteen <tag>out = 19; </tag>
+      </item>
+      <item>
+        twenty <tag>out = 20; </tag>
+      </item>
+    </one-of>
+  </rule>
+</grammar>

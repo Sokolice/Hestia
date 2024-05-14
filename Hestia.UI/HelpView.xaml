@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="Hestia.View.HelpView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hestia.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <local:StyleConverter x:Key="StyleConverter"/>
+    </Page.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock x:Uid="txtHelp" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=title}" Text=""/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock  Margin="0,10,0,0" Grid.Row="0" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=headingbold}">
+                <Run Text="&#xE10F;" FontFamily="Segoe UI Symbol"/>
+                <Run Text="" x:Uid="txtControlHeader"/>
+            </TextBlock>
+            <TextBlock x:Uid="txtControlDescription" Grid.ColumnSpan="2" Grid.Row="1" Text=""  Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+
+            <TextBlock Margin="0,10,0,0" Grid.Row="2" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=headingbold}">
+                <Run Text="&#xE115;" FontFamily="Segoe UI Symbol"/>
+                <Run x:Uid="txtSetHeader" Text=""/>
+            </TextBlock>
+            <TextBlock x:Uid="txtSettingsDescription" Grid.Row="3" Text=""  Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+            <TextBlock  Margin="0,10,0,0" Grid.Row="4" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=headingbold}">
+                <Run Text="&#xE15E;" FontFamily="Segoe UI Symbol"/>
+                <Run Text="" x:Uid="HeaderConfiguration"/>
+            </TextBlock>
+            <TextBlock x:Uid="txtConfigurationDescription" Grid.Row="5" Text=""  Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+            <TextBlock Margin="0,10,0,0" Grid.Row="6" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=headingbold}">
+                <Run Text="&#xE1A2;" FontFamily="Segoe UI Symbol"/>
+                <Run Text="" x:Uid="txtUserManual" />
+            </TextBlock>
+            <TextBlock x:Uid="txtManualDescription" Grid.Row="7" Text=""  Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+            <TextBlock x:Uid="txtAboutAppDescription" Margin="0,10,0,0" Grid.Row="8" Text=""  Style="{Binding Converter={StaticResource StyleConverter}, ConverterParameter=text}"/>
+
+        </Grid>
+    </Grid>
+    </ScrollViewer>
+</Page>
